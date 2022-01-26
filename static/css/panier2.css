@@ -1,0 +1,15 @@
+.container{
+	text-align: center;
+}
+
+ul{
+	text-align: left;
+	font-size:18px;
+}
+
+.item{
+	display: inline-block;
+	border:1px solid crimson;
+	margin:1em;
+	padding:1em;
+}

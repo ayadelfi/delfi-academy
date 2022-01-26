@@ -1,0 +1,81 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="course-area default-padding-bottom bottom-less">
+
+    <!-- Fixed Shape -->
+    <div class="fixed-shape">
+        <img src="static/img/shape/7.png" alt="Shape">
+    </div>
+    <!-- End Fixed Shape -->
+
+    <div class="container">
+        <div class="heading-left">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h5>Popular Courses</h5>
+                    <h2>
+                        ، دوراتنا الحديثة
+                    </h2>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="courses-box">
+            <div class="row">
+                
+                <!-- Single item -->
+                {% for formation in formations %}
+              
+                <div class="single-item col-lg-4 col-md-6">
+                    <div class="item">
+                        <div class="thumb">
+                            <img src="{{formation.imageURL}}" alt="Thumb">
+                            <div class="price">
+                                <h5>دج {{formation.prix}}</h5>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="top-info">
+                                <div class="top-meta">
+                                    <ul>
+                                        <li><i class="fas fa-clock"></i> {{formation.durée_formation}}</li>
+                                        <li><i class="fas fa-list-ul"></i> {{formation.nombre_cours}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4>
+                                <a class="c1" href="/coursdetails/{{formation.id}}">{{formation.nom}}</a>
+                            </h4>
+                            <div class="meta">
+                                <div class="author">
+                                    <img src="{{formation.prof.imageURL}}" >
+                                    <span><strong>{{formation.prof}}</strong> 
+                                </div>
+                            </div>
+                            <div class="bottom-info">
+                                <div class="course-info">
+                                    <i class="fas fa-user"> {{formation.get_nb_achat}}</i> 
+                                </div>
+                                <div class="rating">
+                                    <a class="update-cart" data-product={{formation.id}} data-action="add" ><i class="fas fa-shopping-cart" ></i>   أضف الى السلة </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {% endfor %}
+               
+                
+             
+                <!-- End Single item -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="px-4 px-lg-0">
+    <!-- For demo purpose -->
+    <div class="container text-white py-5 text-center">
+      <h3> Ccp : Delfi Aya  0024589816 Clé 34 </h3>
+      <h3> Baridimob : 00799999002458981634 </h3>
+    </div>
+    <!-- End -->
+  
+    <div class="pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+  
+            <!-- Shopping cart table -->
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="border-0 bg-light">
+                      <div class="p-2 px-3 text-uppercase">الدورة</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                      <div class="py-2 text-uppercase">السعر</div>
+                    </th>
+                    
+                    <th scope="col" class="border-0 bg-light">
+                      <div class="py-2 text-uppercase">حذف</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in items %}
+                  <tr>
+                    <th scope="row" class="border-0">
+                      <div class="p-2">
+                        <img src="{{item.product.imageURL}}" alt="" width="70" class="img-fluid rounded shadow-sm">
+                        <div class="ml-3 d-inline-block align-middle">
+                          <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{item.product.nom}}</a></h5><span class="text-muted font-weight-normal font-italic d-block"></span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="border-0 align-middle"><strong> دج{{item.product.prix}}</strong></td>
+                    <td data-action="remove" data-product="{{item.product.id}}" class=" update-cart border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                  {% endfor %}
+                  
+                 
+                </tbody>
+              </table>
+              <h3> Totale =دج {{total}} </h3>
+            </div>
+            {% if total != 0 %}
+            <a class="btn btn-theme effect btn-sm" href="/checkout" > التقدم لاتمام الطلب</a>
+            <!-- End -->
+            {% endif %}
+          </div>
+        </div>
+  
+       
+  
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock content %}

@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- End Breadcrumb -->
+
+<!-- Start Course Details 
+============================================= -->
+<div class="course-details-area default-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 info">
+
+                <div class="top-info">
+                    <h2>{{formation.nom}}</h2>
+                    <ul>
+                        <li>
+                            <div class="thumb">
+                                <img src="{{formation.prof.imageURL}}" alt="Thumb">
+                            </div>
+                            <div class="info">
+                                <h4> {{formation.prof}}</h4>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div class="center-tabs">
+                        <ul id="tabs" class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="" data-target="#tab1" data-toggle="tab" class="active nav-link">المنهاج</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" data-target="#tab2" data-toggle="tab" class="nav-link">الدورة</a>
+                            </li>
+                        
+                            <li class="nav-item">
+                                <a href="" data-target="#tab4" data-toggle="tab" class="nav-link">التقييمات</a>
+                            </li>
+                        </ul>
+                        <div id="tabsContent" class="tab-content">
+                            <div id="tab1" class="tab-pane overview fade active show">
+                                <h4>وصف الدورة</h4>
+                                <p>
+                                   {{formation.description}}
+                                </p>
+                                  
+                            </div>
+                            <div id="tab2" class="tab-pane curriculum fade">
+                               
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                {{formation.nom}}
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            
+                                            <div class="card-body">
+                                                <ul>
+                                                    {% for video in videos %}
+                                                    <li>
+                                                        <div class="left-content">
+                                                            <span>01</span>
+                                                            <i class="fas fa-play-circle"></i>
+                                                            <h5><a>{{video.titre}}</a></h5>
+                                                        </div>
+                                                        <div class="right-content">
+                                                            
+                                                            <span><i class="fas fa-clock"></i>{{video.duré_video}}</span>
+                                                        </div>
+                                                    </li>
+                                                    
+                                                    {% endfor %}
+                                                  
+                                                </ul>
+                                                
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div id="tab3" class="tab-pane advisor fade">
+                                <div class="advisor-items">
+                                    <!-- Single Item -->
+                                    <div class="single-item">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 thumb">
+                                                <img src="{% static 'img/800x800.png' %}" alt="Advisor">
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 info">
+                                                <h4>Jones Mark</h4>
+                                                <span>Java Programmer</span>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                    <span>4.8 (867)</span>
+                                                </div>
+                                                <p>
+                                                    Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described. 
+                                                </p>
+                                                <ul>
+                                                    <li><i class="fas fa-play"></i> 12 Courses</li>
+                                                    <li><i class="fas fa-comment-alt"></i> 867 Rating</li>
+                                                    <li><i class="fas fa-users"></i> 4k Students</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Item -->
+                                    <!-- Single Item -->
+                                    <div class="single-item">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 thumb">
+                                                <img src="{% static 'img/800x800.png' %}" alt="Advisor">
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 info">
+                                                <h4>Adom Mohaa</h4>
+                                                <span>Professor</span>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                    <span>4.8 (867)</span>
+                                                </div>
+                                                <p>
+                                                    Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described. 
+                                                </p>
+                                                <ul>
+                                                    <li><i class="fas fa-play"></i> 12 Courses</li>
+                                                    <li><i class="fas fa-comment-alt"></i> 867 Rating</li>
+                                                    <li><i class="fas fa-users"></i> 4k Students</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Item -->
+                                </div>
+                            </div>
+                            <div id="tab4" class="tab-pane reviews fade">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="avg-ratings">
+                                            <h2>4.3</h2>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 rating-counter">
+                                        <ul>
+                                            <li>
+                                                <span>5 Star</span>
+                                                <span>13</span>
+                                                <div class="rating-bar"></div>
+                                            </li>
+                                            <li>
+                                                <span>4 Star</span>
+                                                <span>1</span>
+                                                <div class="rating-bar"></div>
+                                            </li>
+                                            <li>
+                                                <span>3 Star</span>
+                                                <span>0</span>
+                                                <div class="rating-bar"></div>
+                                            </li>
+                                            <li>
+                                                <span>2 Star</span>
+                                                <span>1</span>
+                                                <div class="rating-bar"></div>
+                                            </li>
+                                            <li>
+                                                <span>1 Star</span>
+                                                <span>0</span>
+                                                <div class="rating-bar"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 sidebar">
+                <!-- Single Item -->
+                <div class="item course-preview">
+                    <div class="thumb">
+                        <img src="{{formation.imageURL}}" alt="Thumb">
+                        <a  class="popup-youtube light video-play-button item-center">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="top">
+                            <div class="price" item center>
+                                <h2>دج {{formation.prix}}</h2>
+                            </div>
+                            
+                        </div>
+                        <div class="course-includes">
+                            <ul>
+                               
+                                <li>
+                                    <i class="fas fa-clock"></i> المدة <span class="float-right">{{ formation.durée_formation}}</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-sliders-h"></i> السنة <span class="float-right">{{ formation.année}}</span>
+                                </li>
+                                
+                                <li>
+                                    <i class="fas fa-users"></i>الطلاب <span class="float-right">{{formation.get_nb_achat}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class=" btn btn-theme effect btn-sm update-cart " data-product={{formation.id}} data-action="add" >اشتري الدورة</a>
+                    </div>
+                </div>
+             
+                <!-- End Single Item -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- End Course Details -->
+{% endblock content %}

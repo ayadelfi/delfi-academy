@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Edukat - Education and LMS Template">
+
+    <!-- ========== Page Title ========== -->
+    <title>Delfi Academy</title>
+
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/themify-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/flaticon-set.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/elegant-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootsnav.css' %}" rel="stylesheet" />
+    <link href="{% static 'mail/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    <script type="text/javascript">
+        var user='{{request.user}}'
+        function getToken(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getToken('csrftoken');
+    </script>
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5/html5shiv.min.js"></script>
+      <script src="assets/js/html5/respond.min.js"></script>
+    <![endif]-->
+
+    
+
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div class="se-pre-con"></div>
+    <!-- Preloader Ends -->
+
+    <!-- Start Header Top 
+    ============================================= -->
+    <div class="top-bar-area bg-dark text-light inline inc-border">
+        <div class="container-full">
+            <div class="row align-center">
+                
+                <div class="col-lg-7 col-md-12 left-info">
+                    <div class="item-flex">
+                        <ul class="list">
+                            <li>
+                                <i class="fas fa-phone"></i> 0541217778 للاستفسار ؟
+                            </li>
+   
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 right-info">
+                    <div class="item-flex">
+                        <div class="social">
+                            <ul>
+                                <li>
+                                    <a href="https://web.facebook.com/Delfi-Academy-107287218394116"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/delfi_academy/?hl=fr"><i class="fab fa-instagram"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <div class="button">
+                            <a href="/logout"><i class="fa fa-sign-in-alt"></i>تسجيل الخروج</a>
+                        </div>
+                        
+                        {% else %}
+                        <div class="button">
+                            <a href="/register">فتح حساب</a>
+                            <a href="/login"><i class="fa fa-sign-in-alt"></i>تسجيل الدخول</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top -->
+
+    <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+          <!-- Start Navigation -->
+          <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <form action="#">
+                        <input type="text" placeholder="Search" class="form-control" name="text">
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>  
+                    </form>
+                </div>        
+                <!-- End Atribute Navigation -->
+
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li>
+                            <a href="/" class="dropdown-toggle active" data-toggle="dropdown" >الصفحة الرئيسية</a>
+                            
+                        </li>
+                         
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" >الصفحات</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/about">من نحن ؟</a></li>
+                                      
+                                        <li><a href="/contact">اتصل بنا</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a  class="dropdown-toggle" data-toggle="dropdown" >الدورات</a>
+                                    <ul class="dropdown-menu">
+                                        {% for niveau in niveaux %}
+                                        <li class="dropdown">
+                                            <a  class="dropdown-toggle" data-toggle="dropdown" >{{niveau.nom}}</a>
+                                            <ul class="dropdown-menu">
+                                                {% for année in années %}
+                                                {% if niveau.id == année.niveau.id %}
+                                                <li><a href="/niveaucours/{{année.id}}">{{année.nom}}</a></li>
+                                                {% endif %}
+                                                {% endfor %}
+                                                
+                                            </ul>
+                                        </li>
+                                        {% endfor%}
+                                                           
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/profs" class="" >الأساتذة</a>
+                                    
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li>
+                                    <a href="/cart" class="fas fa-shopping-cart" >  ({{num_item}}) السلة</a>
+                                </li>
+                                {% endif %}
+                                {% if user.is_authenticated %}
+                                <li>
+                                    <a href="/mescours/" class="dropdown-toggle active" data-toggle="dropdown" >دوراتي</a>
+                                    
+                                </li>
+                                {% endif %}
+                                
+                                {% if user.is_authenticated %}
+                                <li>
+                                    <a  class="dropdown-toggle active" data-toggle="dropdown" >{{user.username}} مرحبا</a>
+                                    
+                                </li>
+                                {% endif%}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+
+    </header>
+    <!-- End Header -->
+
+
+    <!-- Start Breadcrumb 
+    ============================================= -->
+   
+    <!-- End Breadcrumb -->
+
+    <!-- Start Contact Area
+    ============================================= -->
+    
+    <!-- End Contact -->
+
+    <!-- Star Google Maps
+    ============================================= -->
+   
+    <!-- End Google Maps -->
+
+    <!-- Star Footer
+    ============================================= -->
+    {% block content %}
+    {% endblock content %}
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <footer class="bg-dark text-light">
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>Delfi Tahar <3 </a></p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                       <p>Developped by Delfi Aya <3 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.appear.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.custom.13711.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/progress-bar.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/count-to.js' %}"></script>
+    <script src="{% static 'js/YTPlayer.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/loopcounter.js' %}"></script>
+    <script src="{% static 'js/bootsnav.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
+
+</body>
+</html>

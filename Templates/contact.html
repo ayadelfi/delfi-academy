@@ -1,0 +1,113 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<body>
+
+    <div class="contact-area default-padding-top">
+        <div class="container">
+            <div class="contact-items">
+                <div class="row align-center">
+                    <div class="col-lg-4 left-item">
+                        <div class="info-items">
+                            <!-- Single Item -->
+                            <div class="item">
+                                <div class="icon">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <div class="info">
+                                    <h5>المكان</h5>
+                                    <p>
+                                        en ligne
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                            <!-- Single Item -->
+                            <div class="item">
+                                <div class="icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info">
+                                    <h5>للاتصال بنا</h5>
+                                    <p>
+                                        +213-54-1217-778
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                            <!-- Single Item -->
+                            <div class="item">
+                                <div class="icon">
+                                    <i class="fas fa-envelope-open"></i>
+                                </div>
+                                <div class="info">
+                                    <h5>الايمايل الخاص</h5>
+                                    <p>
+                                        delfi.academy.contact@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                        </div>
+                    </div>
+                    <div class="col-lg-8 right-item">
+                        <h5>هل تحتاج الى مساعدة ؟</h5>
+                        <h2>أبق على اتصال</h2>
+                        <form action="" method="POST" class="">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input class="form-control" id="name" name="name" placeholder="الاسم و اللقب" type="text">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="email" name="email" placeholder="الايمايل*" type="email">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="phone" name="phone" placeholder="الهاتف" type="text">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group comments">
+                                        <textarea class="form-control" id="comments" name="message" placeholder="أخبرنا عن مشروعك أو مشكلتك *"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button type="submit" name="submit" id="submit">
+                                        ارسال <i class="fa fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Alert Message -->
+                            <div class="col-lg-12 alert-notification">
+                                <div id="message" class="alert-msg"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+   <br/><br/><br/><br/><br/><br/><br/><br/>
+
+ 
+
+</body>
+</html>
+{% endblock content %}

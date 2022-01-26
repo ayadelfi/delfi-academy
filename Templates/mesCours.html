@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="course-details-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 info">
+
+                    
+
+                    <div class="main-content">
+                        <div class="center-tabs">
+                            <ul id="tabs" class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a href="" data-target="#tab2" data-toggle="tab" class="nav-link">الدورات المشتراة</a>
+                                </li>
+                               
+                                <li class="nav-item">
+                                    <a href="" data-target="#tab4" data-toggle="tab" class="nav-link">سلاسل التمارين</a>
+                                </li>
+                            </ul>
+                            <div id="tabsContent" class="tab-content">
+                                <div id="tab2" class="tab-pane curriculum fade">
+                                    {% for order in orders %}
+                                    {% if order.customer == customer%}
+                                    {% if order.active == True %}
+                                    <div class="accordion" id="accordionExample">
+                                        {% for item in itemss %}
+                                        {% if item.order == order %}
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                      {{item.product.nom}}
+                                                </h5>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        {% for video in videos%}
+                                                        {% if video.product.id == item.product.id %}
+                                                        <li>
+                                                            <div class="left-content">
+                                                                <span>01</span>
+                                                                <i class="fas fa-play-circle"></i>
+                                                                <h5><a href="#">{{video.titre}}</a></h5>
+                                                            </div>
+                                                            <div class="right-content">
+                                                                <a href="{{video.videoURL}}">مشاهدة</a>
+                                                                <span><i class="fas fa-clock"></i></span>
+                                                            </div>
+                                                        </li>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                       
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                        
+                                    </div>
+                                    {% endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                
+                                <div id="tab4" class="tab-pane reviews fade">
+                                    {% for order in orders %}
+                                    {% if order.customer == customer%}
+                                    {% if order.active == True %}
+                                    <div class="accordion" id="accordionExample">
+                                        {% for item in itemss %}
+                                        {% if item.order == order %}
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                      {{item.product.nom}}
+                                                </h5>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <div class="left-content">
+                                                                <span> - </span>
+                                                                <i ></i>
+                                                                <h5><a >سلسلة التمارين</a></h5>
+                                                            </div>
+                                                            <div class="right-content">
+                                                                <a href="{{item.product.sérieURL}}">مشاهدة</a>
+                                                                <span><i></i></span>
+                                                            </div>
+                                                        </li>
+                                                     
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                        
+                                    </div>
+                                    {% endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
